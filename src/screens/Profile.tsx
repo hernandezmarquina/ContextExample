@@ -1,14 +1,14 @@
 import * as React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
+import {AppContext} from '../AppContext';
 
 const ProfileScreen = () => {
+  const context = React.useContext(AppContext);
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Image
-          source={require('../images/avatar1.png')}
-          style={styles.avatar}
-        />
+        <Image source={context.avatar} style={styles.avatar} />
         <Text style={styles.name}>Duis aute irure</Text>
         <Text style={styles.description}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

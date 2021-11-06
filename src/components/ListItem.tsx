@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {AppContext} from '../AppContext';
 
 interface IListItemProps {
   title: string;
@@ -7,9 +8,11 @@ interface IListItemProps {
 }
 
 const ListItem = (props: IListItemProps) => {
+  const context = React.useContext(AppContext);
+
   return (
     <View style={styles.container}>
-      <View style={styles.indicator} />
+      <View style={[styles.indicator, {backgroundColor: context.color}]} />
       <Text style={styles.title}>{props.title}</Text>
       <Text>{props.subtitle}</Text>
     </View>
@@ -33,7 +36,6 @@ const styles = StyleSheet.create({
     top: 12,
     right: 12,
     borderRadius: 5,
-    backgroundColor: '#336EFF',
     height: 10,
     width: 10,
   },

@@ -1,10 +1,12 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
+import {AppContext} from '../AppContext';
 
 const Header = () => {
+  const context = useContext(AppContext);
   return (
-    <View style={styles.container}>
-      <Image source={require('../images/avatar1.png')} style={styles.avatar} />
+    <View style={[styles.container, {backgroundColor: context.color}]}>
+      <Image source={context.avatar} style={styles.avatar} />
       <Text style={styles.name}>Duis aute irure</Text>
     </View>
   );

@@ -1,16 +1,16 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {AppContext} from '../AppContext';
 import avatar1 from '../images/avatar1.png';
 import avatar2 from '../images/avatar2.png';
 import avatar3 from '../images/avatar3.png';
 import avatar4 from '../images/avatar4.png';
 
 const SettingsScreen = () => {
+  const context = useContext(AppContext);
+
   const avatars = [avatar1, avatar2, avatar3, avatar4];
   const colors = ['#336EFF', '#FF5733', '#C70039', '#900C3F', '#581845'];
-
-  const onAvatarPress = (image: string) => {};
-  const onColorPress = (image: string) => {};
 
   return (
     <View style={styles.container}>
@@ -20,10 +20,11 @@ const SettingsScreen = () => {
           {avatars.map((avatar, index) => {
             return (
               <Avatar
-                isSelected={index === 0}
+                key={`avatar_${index}`}
+                isSelected={avatar === context.avatar}
                 content={avatar}
                 onPress={() => {
-                  onAvatarPress(avatars[index]);
+                  context.changeAvatar(avatars[index]);
                 }}
               />
             );
@@ -36,10 +37,11 @@ const SettingsScreen = () => {
           {colors.map((color, index) => {
             return (
               <ColorView
-                isSelected={index === 0}
+                key={`color_${index}`}
+                isSelected={color === context.color}
                 content={color}
                 onPress={() => {
-                  onColorPress(colors[index]);
+                  context.changeColor(colors[index]);
                 }}
               />
             );
