@@ -5,7 +5,11 @@ import {AppContext} from '../AppContext';
 const Header = () => {
   const context = useContext(AppContext);
   return (
-    <View style={[styles.container, {backgroundColor: context.color}]}>
+    <View
+      style={[
+        styles.container,
+        {backgroundColor: context.theme.secondaryColor},
+      ]}>
       <Image source={context.avatar} style={styles.avatar} />
       <Text style={styles.name}>Duis aute irure</Text>
     </View>

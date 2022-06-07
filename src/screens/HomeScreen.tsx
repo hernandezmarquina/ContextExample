@@ -1,5 +1,6 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
+import {AppContext} from '../AppContext';
 import Header from '../components/Header';
 import ListItem from '../components/ListItem';
 
@@ -43,12 +44,14 @@ const DATA = [
 ];
 
 const HomeScreen = () => {
+  const context = useContext(AppContext);
   const renderItem = ({item}) => (
     <ListItem title={item.title} subtitle={item.subtitle} />
   );
 
   return (
-    <View style={styles.container}>
+    <View
+      style={[styles.container, {backgroundColor: context.theme.primaryColor}]}>
       <Header />
       <FlatList
         style={styles.container}

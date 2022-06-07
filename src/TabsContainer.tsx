@@ -15,7 +15,7 @@ const TabsContainer = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        barStyle={{backgroundColor: context.color}}
+        barStyle={{backgroundColor: context.theme.secondaryColor}}
         screenOptions={({route}) => ({
           tabBarIcon: ({color}) => {
             let iconName =

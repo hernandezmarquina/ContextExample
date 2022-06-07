@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {AppContext} from '../AppContext';
 
@@ -8,13 +8,23 @@ interface IListItemProps {
 }
 
 const ListItem = (props: IListItemProps) => {
-  const context = React.useContext(AppContext);
+  const context = useContext(AppContext);
 
   return (
-    <View style={styles.container}>
-      <View style={[styles.indicator, {backgroundColor: context.color}]} />
-      <Text style={styles.title}>{props.title}</Text>
-      <Text>{props.subtitle}</Text>
+    <View
+      style={[styles.container, {backgroundColor: context.theme.alterColor}]}>
+      <View
+        style={[
+          styles.indicator,
+          {backgroundColor: context.theme.secondaryColor},
+        ]}
+      />
+      <Text style={[styles.title, {color: context.theme.alterTextColor}]}>
+        {props.title}
+      </Text>
+      <Text style={{color: context.theme.alterTextColor2}}>
+        {props.subtitle}
+      </Text>
     </View>
   );
 };

@@ -1,16 +1,21 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {AppContext} from '../AppContext';
 
 const ProfileScreen = () => {
-  const context = React.useContext(AppContext);
+  const context = useContext(AppContext);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
+    <View
+      style={[styles.container, {backgroundColor: context.theme.primaryColor}]}>
+      <View
+        style={[styles.content, {backgroundColor: context.theme.alterColor}]}>
         <Image source={context.avatar} style={styles.avatar} />
-        <Text style={styles.name}>Duis aute irure</Text>
-        <Text style={styles.description}>
+        <Text style={[styles.name, {color: context.theme.alterTextColor}]}>
+          Duis aute irure
+        </Text>
+        <Text
+          style={[styles.description, {color: context.theme.alterTextColor}]}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
