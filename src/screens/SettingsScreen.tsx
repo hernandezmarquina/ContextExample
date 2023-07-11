@@ -94,9 +94,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   avatar: {
-    height: 50,
-    width: 50,
-    borderRadius: 25,
+    height: 60,
+    width: 60,
+    borderRadius: 30,
     resizeMode: 'center',
   },
   itemContainer: {
@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: 'white',
     borderWidth: 2,
+    overflow: 'hidden',
   },
   avatarItemContainer: {
     height: 60,

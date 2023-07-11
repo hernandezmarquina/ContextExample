@@ -40,6 +40,12 @@ const DATA = [
     subtitle:
       'Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.',
   },
+  {
+    id: '58694a1n',
+    title: 'Sed ut perspiciatis unde',
+    subtitle:
+      'Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.',
+  },
 ];
 
 const HomeScreen = () => {
